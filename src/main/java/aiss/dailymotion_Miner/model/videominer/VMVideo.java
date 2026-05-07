@@ -1,10 +1,15 @@
 package aiss.dailymotion_Miner.model.videominer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VMVideo {
     private String id;
     private String name;
     private String description;
     private String releaseTime;
+    private List<VMComment> comments;
+    private List<VMCaption> captions;
 
     public VMVideo(String id, String name, String description, String releaseTime) {
         this.id = id;
@@ -12,7 +17,7 @@ public class VMVideo {
         this.description = description;
         this.releaseTime = releaseTime;
         this.comments = new ArrayList<VMComment>();
-        this.captions = new ArrayList<VMCaption>()
+        this.captions = new ArrayList<VMCaption>();
     }
 
     public String getId() { return id; }
@@ -33,6 +38,11 @@ public class VMVideo {
 
     public List<VMCaption> getCaptions() { return captions; }
 
-    public void setVideos(List<VMCaption> captions) {this.captions = captions; }
+    public void setCaptions(List<VMCaption> captions) {this.captions = captions; }
+
+    public List<VMComment> getComments() { return comments; }
+
+    public void setComments(List<VMComment> comments) {this.comments = comments; }
+
 
 }
