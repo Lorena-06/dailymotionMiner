@@ -1,10 +1,12 @@
+package aiss.dailymotion_Miner.model.videominer;
+
 public class VMVideo {
     private String id;
     private String name;
     private String description;
     private String releaseTime;
 
-    public VMUser(String id, String name, String description, String releaseTime) {
+    public VMVideo(String id, String name, String description, String releaseTime) {
         this.id = id;
         this.name = name;
         this.description = description;
