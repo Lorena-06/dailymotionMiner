@@ -1,10 +1,16 @@
 package aiss.dailymotion_Miner.model.videominer;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 public class VMChannel {
     private String id;
     private String name;
     private String description;
     private String createdTime;
+    private List<VMVideo> videos;
 
     public VMChannel(String id, String name, String description, String createdTime) {
         this.id = id;

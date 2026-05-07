@@ -16,7 +16,7 @@ public class VMCaption {
 
     public void setId(String id) { this.id = id; }
 
-    public String getLink() { return id; }
+    public String getLink() { return link; }
 
     public void setLink(String link) {this.link = link; }
 
