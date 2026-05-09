@@ -4,7 +4,6 @@ public class VMComment {
     private String id;
     private String text;
     private String createdOn;
-    private String releaseTime;
 
     public VMComment(String id, String text, String createdOn) {
         this.id = id;

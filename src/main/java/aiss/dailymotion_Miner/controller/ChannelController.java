@@ -77,12 +77,12 @@ public class ChannelController {
     }
 
     private VMChannel convertToVMChannel(Channel channel, VideoResponse videoResponse) {
+
+        String description = channel.getDescription() != null ? channel.getDescription() : "";
+        String createdTime = channel.getCreatedTime() != null ? channel.getCreatedTime() : "";
         
-        VMChannel vmChannel = new VMChannel();
-        vmChannel.setId(channel.getId());
-        vmChannel.setName(channel.getName());
-        vmChannel.setDescription("");
-        vmChannel.setCreatedTime("");
+        VMChannel vmChannel = new VMChannel(channel.getId(), channel.getName(), description, createdTime);
+        
         
         if (videoResponse != null && videoResponse.getList() != null) {
             List<VMVideo> vmVideos = new ArrayList<>();
