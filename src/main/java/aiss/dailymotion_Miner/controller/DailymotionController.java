@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -146,12 +147,12 @@ public class DailymotionController {
 
         // 3. Añadir usuario (owner)
         if (video.getOwner() != null && !video.getOwner().isEmpty()) {
-            VMUser vmUser = new VMUser(
-                    video.getOwner(),
-                    video.getOwner(),
-                    "https://www.dailymotion.com/" + video.getOwner(),
-                    null
-            );
+            VMUser vmUser = new VMUser();
+            // Genera un ID único para cada video
+            vmUser.setId(UUID.randomUUID().toString());  // ID único
+            vmUser.setName(video.getOwner());
+            vmUser.setUser_link("https://www.dailymotion.com/" + video.getOwner());
+            vmUser.setPicture_link("");
             vmVideo.setUser(vmUser);
         }
 

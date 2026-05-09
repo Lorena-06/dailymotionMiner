@@ -6,6 +6,8 @@ public class VMCaption {
     private String link;
     private String language;
 
+    public VMCaption() {}
+
     public VMCaption(String id, String link, String language){
         this.id = id;
         this.link = link;

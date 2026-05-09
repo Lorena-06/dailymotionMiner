@@ -6,6 +6,8 @@ public class VMUser {
     private String user_link;
     private String picture_link;
 
+    public VMUser() {}
+
     public VMUser(String id, String name, String user_link, String picture_link) {
         this.id = id;
         this.name = name;

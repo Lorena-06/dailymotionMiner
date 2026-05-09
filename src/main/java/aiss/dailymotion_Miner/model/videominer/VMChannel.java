@@ -10,6 +10,8 @@ public class VMChannel {
     private String createdTime;
     private List<VMVideo> videos;
 
+    public VMChannel() {}
+
     public VMChannel(String id, String name, String description, String createdTime) {
         this.id = id;
         this.name = name;

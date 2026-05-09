@@ -11,6 +11,8 @@ public class VMVideo {
     private List<VMCaption> captions;
     private VMUser user;  // ← NUEVO CAMPO
 
+    public VMVideo() {}
+
     // Constructor con parámetros
     public VMVideo(String id, String name, String description, String releaseTime) {
         this.id = id;
@@ -20,9 +22,6 @@ public class VMVideo {
         this.comments = new ArrayList<VMComment>();
         this.captions = new ArrayList<VMCaption>();
     }
-
-    // Constructor vacío (necesario para Spring)
-    public VMVideo() {}
 
     // Getters y Setters
     public String getId() { return id; }
