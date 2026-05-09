@@ -19,9 +19,11 @@ public class ChannelService {
         this.restTemplate = restTemplate;
     }
 
-    // Obtener un canal por ID
+    // Obtener un canal por ID con todos los campos necesarios
     public Channel getChannel(String channelId) {
-        String url = baseUri + "/channel/" + channelId;
+        // Añadimos ?fields= con los campos que queremos
+        String url = baseUri + "/channel/" + channelId
+                + "?fields=id,name,description,created_time";
         return restTemplate.getForObject(url, Channel.class);
     }
 }
