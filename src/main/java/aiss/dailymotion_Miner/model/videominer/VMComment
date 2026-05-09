@@ -1,10 +1,13 @@
+package aiss.dailymotion_Miner.model.videominer;
+
+
 public class VMComment {
     private String id;
     private String text;
     private String createdOn;
     private String releaseTime;
 
-    public VMUser(String id, String text, String createdOn) {
+    public VMComment(String id, String text, String createdOn) {
         this.id = id;
         this.text = text;
         this.createdOn = createdOn;
