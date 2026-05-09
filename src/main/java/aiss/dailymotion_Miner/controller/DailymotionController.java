@@ -3,6 +3,7 @@ package aiss.dailymotion_Miner.controller;
 import aiss.dailymotion_Miner.model.dailymotion.*;
 import aiss.dailymotion_Miner.model.videominer.*;
 import aiss.dailymotion_Miner.service.*;
+import aiss.dailymotion_Miner.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +51,7 @@ public class DailymotionController {
 
         Channel channel = channelService.getChannel(channelId);
         if (channel == null) {
-            throw new RuntimeException("Channel not found: " + channelId);
+            throw new ChannelNotFoundException(channelId);
         }
 
         VideoResponse videoResponse = videoService.getChannelVideos(channelId, maxPages);
@@ -68,7 +69,7 @@ public class DailymotionController {
 
         Channel channel = channelService.getChannel(channelId);
         if (channel == null) {
-            throw new RuntimeException("Channel not found: " + channelId);
+            throw new ChannelNotFoundException(channelId);
         }
 
         VideoResponse videoResponse = videoService.getChannelVideos(channelId, maxPages);
@@ -78,7 +79,7 @@ public class DailymotionController {
             VMChannel createdChannel = restTemplate.postForObject(videoMinerUri, vmChannel, VMChannel.class);
             return ResponseEntity.ok(createdChannel);
         } catch (RestClientException e) {
-            throw new RuntimeException("Error sending to VideoMiner: " + e.getMessage(), e);
+            throw new VideoMinerApiException("No se pudo enviar el canal a VideoMiner: " + e.getMessage(), e);
         }
     }
 
@@ -148,7 +149,6 @@ public class DailymotionController {
         // 3. Añadir usuario (owner)
         if (video.getOwner() != null && !video.getOwner().isEmpty()) {
             VMUser vmUser = new VMUser();
-            // Genera un ID único para cada video
             vmUser.setId(UUID.randomUUID().toString());  // ID único
             vmUser.setName(video.getOwner());
             vmUser.setUser_link("https://www.dailymotion.com/" + video.getOwner());
