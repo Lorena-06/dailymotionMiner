@@ -14,7 +14,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "id",
     "title",
     "channel",
-    "owner"
+    "owner",
+    "description",
+    "created_time"
 })
 @Generated("jsonschema2pojo")
 public class Video implements Serializable
@@ -28,6 +30,10 @@ public class Video implements Serializable
     private String channel;
     @JsonProperty("owner")
     private String owner;
+    @JsonProperty("description")
+    private String description;
+    @JsonProperty("created_time")
+    private String createdTime;
     private final static long serialVersionUID = 1273700029711605101L;
 
     @JsonProperty("id")
@@ -70,6 +76,26 @@ public class Video implements Serializable
         this.owner = owner;
     }
 
+    @JsonProperty("description")
+    public String getDescription() {
+        return description;
+    }
+
+    @JsonProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonProperty("created_time")
+    public String getCreatedTime() {
+        return createdTime;
+    }
+
+    @JsonProperty("created_time")
+    public void setCreatedTime(String createdTime) {
+        this.createdTime = createdTime;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -89,6 +115,14 @@ public class Video implements Serializable
         sb.append("owner");
         sb.append('=');
         sb.append(((this.owner == null)?"<null>":this.owner));
+        sb.append(',');
+        sb.append("description");
+        sb.append('=');
+        sb.append(((this.description == null) ? "<null>" : this.description));
+        sb.append(',');
+        sb.append("createdTime");
+        sb.append('=');
+        sb.append(((this.createdTime == null) ? "<null>" : this.createdTime));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

@@ -101,12 +101,11 @@ public class ChannelController {
     }
     
     private VMVideo convertToVMVideo(Video video) {
+
+        String description = video.getDescription() != null ? video.getDescription() : "";
+        String createdTime = video.getCreatedTime() != null ? video.getCreatedTime() : "";
         
-        VMVideo vmVideo = new VMVideo();
-        vmVideo.setId(video.getId());
-        vmVideo.setName(video.getTitle());
-        vmVideo.setDescription("");
-        vmVideo.setReleaseTime("");
+        VMVideo vmVideo = new VMVideo(video.getId(), video.getTitle(), description, createdTime);
         
         try {
             CaptionResponse captionResponse = captionService.getCaptions(video.getId());
@@ -128,10 +127,8 @@ public class ChannelController {
     }
     
     private Caption convertToVMCaption(Caption caption) {
-        Caption vmCaption = new Caption();
-        vmCaption.setId(caption.getId());
-        vmCaption.setLanguage(caption.getLanguage());
-        vmCaption.setLink("");
+        VMCaption vmCaption = new VMCaption(caption.getId(), caption.getLanguage(), caption.getUrl());
+
         return vmCaption;
     }
 }

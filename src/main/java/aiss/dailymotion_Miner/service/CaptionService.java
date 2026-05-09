@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
 import aiss.dailymotion_Miner.model.dailymotion.CaptionResponse;
 
 @Service
@@ -21,7 +22,7 @@ public class CaptionService {
 
     // Obtener subtítulos de un video
     public CaptionResponse getCaptions(String videoId) {
-        String url = baseUri + "/video/" + videoId + "/subtitles";
+        String url = baseUri + "/video/" + videoId + "?fields=id,language,url" + "/subtitles";
         return restTemplate.getForObject(url, CaptionResponse.class);
     }
 }

@@ -10,7 +10,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "id",
-    "language"
+    "language",
+    "url"
 })
 @Generated("jsonschema2pojo")
 public class Caption {
@@ -19,6 +20,8 @@ public class Caption {
     private String id;
     @JsonProperty("language")
     private String language;
+    @JsonProperty("url")
+    private String url;
 
     @JsonProperty("id")
     public String getId() {
@@ -40,6 +43,16 @@ public class Caption {
         this.language = language;
     }
 
+    @JsonProperty("url")
+    public String getUrl() {
+        return url;
+    }
+
+    @JsonProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -51,6 +64,10 @@ public class Caption {
         sb.append("language");
         sb.append('=');
         sb.append(((this.language == null)?"<null>":this.language));
+        sb.append(',');
+        sb.append("url");
+        sb.append('=');
+        sb.append(((this.url == null) ? "<null>" : this.url));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
