@@ -1,7 +1,7 @@
 package aiss.dailymotion_Miner.model.videominer;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class VMVideo {
     private String id;

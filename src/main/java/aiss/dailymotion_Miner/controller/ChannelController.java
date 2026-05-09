@@ -111,7 +111,7 @@ public class ChannelController {
         try {
             CaptionResponse captionResponse = captionService.getCaptions(video.getId());
             if (captionResponse != null && captionResponse.getList() != null && !captionResponse.getList().isEmpty()) {
-                List<VMCaption> vmCaptions = captionResponse.getList().stream()
+                List<Caption> vmCaptions = captionResponse.getList().stream()
                     .map(this::convertToVMCaption)
                     .collect(Collectors.toList());
                 vmVideo.setCaptions(vmCaptions);
@@ -127,8 +127,8 @@ public class ChannelController {
         return vmVideo;
     }
     
-    private VMCaption convertToVMCaption(Caption caption) {
-        VMCaption vmCaption = new VMCaption();
+    private Caption convertToVMCaption(Caption caption) {
+        Caption vmCaption = new Caption();
         vmCaption.setId(caption.getId());
         vmCaption.setLanguage(caption.getLanguage());
         vmCaption.setLink("");
