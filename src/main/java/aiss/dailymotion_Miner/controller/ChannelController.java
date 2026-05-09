@@ -126,7 +126,7 @@ public class ChannelController {
         return vmVideo;
     }
     
-    private Caption convertToVMCaption(Caption caption) {
+    private VMCaption convertToVMCaption(Caption caption) {
         VMCaption vmCaption = new VMCaption(caption.getId(), caption.getLanguage(), caption.getUrl());
 
         return vmCaption;
