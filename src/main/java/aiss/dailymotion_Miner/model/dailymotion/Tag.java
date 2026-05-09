@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "hashtags"
 })
 @Generated("jsonschema2pojo")
-public class Tags {
+public class Tag {
 
     @JsonProperty("hashtags")
     private List<String> hashtags;
@@ -32,7 +32,7 @@ public class Tags {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Tags.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(Tag.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("hashtags");
         sb.append('=');
         sb.append(((this.hashtags == null)?"<null>":this.hashtags));

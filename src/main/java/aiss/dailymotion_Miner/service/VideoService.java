@@ -4,14 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import aiss.dailymotion_Miner.model.dailymotion.VideoResponse;
 
 @Service
 public class VideoService {
 
     private final RestTemplate restTemplate;
-    
+
     @Value("${dailymotion.baseuri}")
     private String baseUri;
 
@@ -20,12 +19,13 @@ public class VideoService {
         this.restTemplate = restTemplate;
     }
 
-    // Obtener videos de un canal (con paginación)
-    public VideoResponse getChannelVideos(String channelId, int maxVideos, int maxPages) {
-        int limit = Math.min(maxVideos, 100); // Dailymotion max es 100
-        int page = Math.min(maxPages, 10);    // Limitar páginas
-        String url = baseUri + "/channel/" + channelId + "?fields=id,title,channel,owner,description,created_time"  + "/videos?limit=" + limit + "&page=" + page;
+    public VideoResponse getChannelVideos(String channelId, int maxPages) {
+        int videosPerPage = 10;  // Dailymotion default limit
+        int totalVideos = videosPerPage * maxPages;
+
+        String url = baseUri + "/playlist/" + channelId + "/videos?limit=" + totalVideos +
+                "&fields=id,title,channel,owner,description,created_time";
+
         return restTemplate.getForObject(url, VideoResponse.class);
     }
-
 }
