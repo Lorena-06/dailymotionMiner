@@ -4,7 +4,7 @@ package aiss.dailymotion_Miner.controller;
 //comprobar todos los errores cuando estén creados todos los videominer models
 
 import aiss.dailymotion_Miner.model.dailymotion.*;
-import aiss.dailymotion_Miner.model.videominer.*;  
+import aiss.dailymotion_Miner.model.videominer.*; 
 import aiss.dailymotion_Miner.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

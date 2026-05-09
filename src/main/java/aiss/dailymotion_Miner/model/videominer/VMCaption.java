@@ -1,12 +1,12 @@
 package aiss.dailymotion_Miner.model.videominer;
 
-public class Caption {
+public class VMCaption {
     
     private String id;
     private String link;
     private String language;
 
-    public Caption(String id, String link, String language){
+    public VMCaption(String id, String link, String language){
         this.id = id;
         this.link = link;
         this.language = language;
@@ -16,7 +16,7 @@ public class Caption {
 
     public void setId(String id) { this.id = id; }
 
-    public String getLink() { return id; }
+    public String getLink() { return link; }
 
     public void setLink(String link) {this.link = link; }
 

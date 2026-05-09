@@ -1,6 +1,5 @@
 package aiss.dailymotion_Miner.model.videominer;
 
-
 public class VMComment {
     private String id;
     private String text;

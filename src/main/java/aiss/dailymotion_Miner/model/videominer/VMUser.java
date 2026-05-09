@@ -1,6 +1,5 @@
 package aiss.dailymotion_Miner.model.videominer;
 
-
 public class VMUser {
     private String id;
     private String name;
