@@ -13,7 +13,6 @@ public class VMVideo {
 
     public VMVideo() {}
 
-    // Constructor con parámetros
     public VMVideo(String id, String name, String description, String releaseTime) {
         this.id = id;
         this.name = name;
@@ -23,7 +22,6 @@ public class VMVideo {
         this.captions = new ArrayList<VMCaption>();
     }
 
-    // Getters y Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -42,7 +40,6 @@ public class VMVideo {
     public List<VMComment> getComments() { return comments; }
     public void setComments(List<VMComment> comments) { this.comments = comments; }
 
-    // NUEVO Getter y Setter para user
     public VMUser getUser() { return user; }
     public void setUser(VMUser user) { this.user = user; }
 }

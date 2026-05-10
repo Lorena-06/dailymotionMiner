@@ -114,7 +114,7 @@ public class DailymotionController {
 
         VMVideo vmVideo = new VMVideo(video.getId(), video.getTitle(), description, releaseTime);
 
-        // 1. Añadir tags (hashtags del video) como comentarios
+        // 1. Añadir tags como comentarios
         try {
             Tag tag = tagService.getTags(video.getId());
             String videoCreatedTime = video.getCreatedTime();  // Fecha del video
@@ -159,7 +159,6 @@ public class DailymotionController {
         return vmVideo;
     }
 
-    // Convierte un hashtag a VMComment con la fecha del video
     private VMComment convertHashtagToVMComment(String hashtag, String videoCreatedTime) {
         String id = "tag_" + hashtag.replace("#", "");
         String text = hashtag;

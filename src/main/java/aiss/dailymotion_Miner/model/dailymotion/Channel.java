@@ -30,10 +30,8 @@ public class Channel implements Serializable {
 
     private final static long serialVersionUID = -4660332370600059086L;
 
-    // Constructor vacío
     public Channel() {}
 
-    // Getters y Setters
     @JsonProperty("id")
     public String getId() {
         return id;
